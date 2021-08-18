@@ -1,0 +1,468 @@
+/**
+* jquery.material-color-picker.js v1.0.0
+* http://www.castorstudio.com
+*
+* This color picker is part of the Material Plus UI Kit
+*
+* Color Picker inspired by Google's Material Design
+* 
+* Copyright (c) 2017 Paulo Mendez,
+* http://www.castorstudio.com
+*/
+
+
+/* ==========================================================================
+   Material Color Picker Plus - Base Styles
+   ========================================================================== */
+.material-color-picker-wrapper{
+	--colorpicker-column-count: 	5;
+	--colorpicker-column-width: 	calc(100% / var(--colorpicker-column-count));
+	--colorpicker-item-size: 		48px;
+	--colorpicker-width: 			350px;
+	--colorpicker-height: 			360px;
+	--colorpicker-top: 				0px;
+	--colorpicker-left: 			0px;
+	--colorpicker-zindex: 			10;
+	--colorpicker-offset: 			16px 0;
+	--colorpicker-padding-title: 	16px;
+	--colorpicker-padding-wrapper: 	8px 16px;
+	--colorpicker-padding-wrapper_notitle: 20px 16px;
+	--colorpicker-shadow: 			0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+
+	$easing-curve: cubic-bezier(0, 0, 0.2, 1);
+
+	font-family: Roboto, sans-serif;
+	-moz-osx-font-smoothing: grayscale;
+
+	position: absolute;
+	top: var(--colorpicker-top);
+	left: var(--colorpicker-left);
+	width: var(--colorpicker-width);
+	height: 1px;
+	z-index: var(--colorpicker-zindex);
+	transition: all 0.3s;
+	z-index: 9999;
+
+	*{
+		user-select: none;
+		box-sizing: border-box;
+	}
+
+	.material-color-picker{
+		position: absolute;
+		top: var(--colorpicker-pos_top);
+		right: var(--colorpicker-pos_right);
+		bottom: var(--colorpicker-pos_bottom);
+		left: var(--colorpicker-pos_left);
+
+		width: var(--colorpicker-width);
+		max-width: var(--colorpicker-width);
+		margin: var(--colorpicker-offset);
+
+		border-radius: 2px;
+		background-color: rgb(255,255,255);
+		box-shadow: var(--colorpicker-shadow);
+		user-select: none;
+		overflow: hidden;
+
+		display: flex;
+		flex-flow: column;
+		align-items: stretch;
+
+		transition: all 0.3s $easing-curve;
+		animation: opencolorpicker 350ms $easing-curve 0s 1 normal forwards;
+
+
+		// If (title) { set normal padding values }
+		.mcp__title + .mcp__collection-wrapper{
+			padding: var(--colorpicker-padding-wrapper);
+
+			// Color Picker Subpalette
+			.mcp-color-item-palette{
+				padding: var(--colorpicker-padding-wrapper);
+			}
+		}
+
+		// If (title == false) { set alternative "no title" padding values }
+		.mcp__title{
+			flex: 1 0 auto;
+			cursor: default;
+			padding: var(--colorpicker-padding-title);
+			overflow: hidden;
+			opacity: 0;
+			animation: slideInDownOpacity 350ms $easing-curve 200ms 1 normal forwards;
+
+			h3{
+				font-family: Roboto, sans-serif;
+				-moz-osx-font-smoothing: grayscale;
+				-webkit-font-smoothing: antialiased;
+				font-size: 1.25rem;
+				font-weight: 500;
+				letter-spacing: 0.02em;
+				line-height: 2rem;
+				margin: 0px;
+				padding: 0px;
+			}
+		}
+
+		.mcp__collection-wrapper{
+			padding: var(--colorpicker-padding-wrapper_notitle);
+			display: flex;
+			flex-flow: wrap;
+			position: relative;
+			overflow-y: auto;
+
+			.mcp-color-item{
+				overflow: hidden;
+				margin-bottom: 8px;
+				flex-basis: var(--colorpicker-column-width);
+				width: var(--colorpicker-column-width);
+				min-width: var(--colorpicker-column-width);
+				max-width: var(--colorpicker-column-width);
+				height: var(--colorpicker-item-size);
+				min-height: var(--colorpicker-item-size);
+				max-height: var(--colorpicker-item-size);
+
+				display: flex;
+				justify-content: center;
+
+				.mcp-color-item__swatch{
+					position: relative;
+					z-index: 2;
+					cursor: pointer;
+					background-color: rgb(189, 189, 189);
+					border-radius: 50%;
+					width: var(--colorpicker-item-size);
+					height: var(--colorpicker-item-size);
+					min-width: var(--colorpicker-item-size);
+					max-width: var(--colorpicker-item-size);
+					min-height: var(--colorpicker-item-size);
+					max-height: var(--colorpicker-item-size);
+					transform: scale(0);
+					opacity: 0;
+					transition: all 0.3s $easing-curve;
+					pointer-events: initial;
+
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					&::after{
+						content: "\e5ca";
+						font-family: "Material Icons",sans-serif;
+						font-size: 1.5rem;
+						color: rgb(255, 255, 255);
+						background: rgba(0,0,0,.5);
+						border-radius: 50%;
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						width: calc(var(--colorpicker-item-size) / 1.5);
+						height: calc(var(--colorpicker-item-size) / 1.5);
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						pointer-events: none;
+						transform: translate(-50%,-50%) scale(0);
+						opacity: 0;
+						transition: all 0.3s $easing-curve;
+					}
+				}
+			}
+
+			// Color Picker Subpalette
+			.mcp-color-item-palette{
+				padding: var(--colorpicker-padding-wrapper_notitle);
+				overflow: hidden;
+				display: flex;
+				display: none;
+				flex-flow: wrap;
+				align-content: flex-start;
+				background: rgba(255,255,255,1);
+				position: absolute;
+				top: var(--position-top,0);
+				left: var(--position-left,0);
+				width: var(--colorpicker-item-size);
+				height: var(--colorpicker-item-size);
+				animation: closepalette 350ms $easing-curve 0s 1 normal forwards;
+				z-index: 1;
+
+				// Back Button
+				.mcp-color-back-to-palette{
+					position: relative;
+					cursor: pointer;
+
+					&::after{
+						content: "\e5c4";
+						font-family: "Material Icons",sans-serif;
+						font-size: 24px;
+						color: rgba(0,0,0,.5);
+						border-radius: 50%;
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						width: 30px;
+						height: 30px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						transform: translate(-50%,-50%);
+						transition: all 0.3s $easing-curve;
+					}
+				}
+
+				> .mcp-color-item{
+					> .mcp-color-item__swatch{
+						transform: scale(0);
+					}
+				}
+
+				// Palette Alternative Styles
+				// --------------------------------------------------------------------------
+				&_visible{
+					display: flex;
+					animation: openpalette 350ms $easing-curve 0s 1 normal forwards;
+
+					> .mcp-color-item{
+						> .mcp-color-item__swatch{
+							transform: scale(1);
+						}
+					}
+				}
+
+				&_closing{
+					display: flex;
+					animation: closepalette 350ms $easing-curve 0s 1 normal forwards;
+				}
+			}
+
+
+			// Color Collection Alternative Styles
+			// --------------------------------------------------------------------------
+			&_loaded{
+				.mcp-color-item{
+					> .mcp-color-item__swatch{
+						transform: scale(1);
+						opacity: 1;
+					}
+
+					// Color Item Alternative Styles
+					// --------------------------------------------------------------------------
+					&_selected{
+						> .mcp-color-item__swatch{
+							&::after{
+								opacity: 1;
+								transform: translate(-50%,-50%) scale(1);
+							}
+						}
+					}
+
+					&_hidden{
+						> .mcp-color-item__swatch{
+							transform: scale(0);
+							opacity: 0;
+							pointer-events: none;
+						}
+					}
+				}
+			}
+		}
+
+		.mcp__buttonbar-actions {
+			flex: 1 0 auto;
+			display: flex;
+			padding: 8px;
+			justify-content: flex-end;
+
+			.mcp__action {
+				margin: 0 8px 0 0;
+				padding: 0 8px;
+			}
+		}
+		.mcp__button {
+			will-change: transform, opacity;
+			-webkit-tap-highlight-color: transparent;
+			font-family: Roboto, sans-serif;
+			-moz-osx-font-smoothing: grayscale;
+			-webkit-font-smoothing: antialiased;
+			font-size: 0.875rem;
+			font-weight: 500;
+			letter-spacing: 0.04em;
+			line-height: 1.5rem;
+			color: rgba(0, 0, 0, 0.87);
+			display: inline-block;
+			position: relative;
+			min-width: 64px;
+			height: 36px;
+			padding: 0 16px;
+			border: none;
+			border-radius: 2px;
+			outline: none;
+			background: transparent;
+			font-size: 14px;
+			font-weight: 500;
+			line-height: 36px;
+			text-align: center;
+			text-decoration: none;
+			text-transform: uppercase;
+			overflow: hidden;
+			vertical-align: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			-webkit-appearance: none;
+		}
+
+
+		// Color Picker Alternative Styles
+		// --------------------------------------------------------------------------
+		&_closing{
+			animation: closecolorpicker 350ms $easing-curve 0s 1 normal forwards;
+		}
+	}
+
+
+	/* ==========================================================================
+	   Mode: Modal
+	   ========================================================================== */
+	&.mcp--mode_modal{
+		position: fixed;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 99999;
+
+		/* Shaded background */
+		&::before {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, .6);
+			content: "";
+			opacity: 0;
+			opacity: var(--mdc-temporary-drawer-opacity, 0);
+			will-change: opacity;
+			box-sizing: border-box;
+		}
+
+		.material-color-picker{
+			position: relative;
+			margin: 0 auto;
+			transform: translateY(-50%);
+			top: 50%;
+		}
+	}
+
+	&.mcp--animating {
+		&::before {
+			transition: opacity 0.3s 0ms cubic-bezier(0, 0, 0.2, 1);
+		}
+	}
+
+	&.mcp--open {
+		pointer-events: auto;
+
+		&::before {
+			opacity: 1;
+			opacity: var(--mdc-temporary-drawer-opacity, 1);
+		}
+	}
+}
+
+/* ==========================================================================
+   Material Color Picker Plus - Animations
+   ========================================================================== */
+@keyframes openpalette {
+	from{
+		z-index: 1;
+		opacity: 0;
+		border-radius: 500px;
+		top: var(--position-top);
+		left: var(--position-left);
+		width: var(--colorpicker-item-size);
+		height: var(--colorpicker-item-size);
+		background: rgba(255,255,255,0);
+	}
+	70%{
+		background: rgba(255,255,255,0.3);
+	}
+	to{
+		z-index: 3;
+		opacity: 1;
+		border-radius: 0;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: auto;
+		background: rgba(255,255,255,1);
+	}
+}
+@keyframes closepalette {
+	from{
+		z-index: 3;
+		opacity: 1;
+		border-radius: 0;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: auto;
+		background: rgba(255,255,255,1);
+	}
+	30%{
+		background: rgba(255,255,255,0.3);
+	}
+	to{
+		z-index: 1;
+		opacity: 0;
+		border-radius: 500px;
+		top: var(--position-top);
+		left: var(--position-left);
+		width: var(--colorpicker-item-size);
+		height: var(--colorpicker-item-size);
+		background: rgba(255,255,255,0);
+	}
+}
+@keyframes opencolorpicker {
+	from{
+		opacity: 0;
+		width: 0px;
+		max-height: 0px;
+	}
+	to{
+		opacity: 1;
+		width: var(--colorpicker-width);
+		max-height: var(--colorpicker-height);
+	}
+}
+@keyframes closecolorpicker {
+	to{
+		opacity: 0;
+		width: 0px;
+		max-height: 0px;
+	}
+	from{
+		opacity: 1;
+		width: var(--colorpicker-width);
+		max-height: var(--colorpicker-height);
+	}
+}
+@keyframes slideInDownOpacity {
+  from {
+  	opacity: 0;
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+  to {
+  	opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}

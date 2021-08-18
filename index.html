@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>GESTOR CONTENIDO WEB</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="Descripción del sitio web">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="assets/img/favicon.png">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;700&display=swap" >
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" >
+		<link rel="stylesheet" href="assets/css/style.css?v=1.1"> 
+	</head>
+	<body class="index">
+		<header class="header">
+			<div class="container">
+				<div class="item">
+					<h1 class="title">GESTOR CONTENIDO WEB</h1>
+					<div class="buttons">
+						<a href="#">PREVISUALIZAR</a>
+						<a href="#">PUBLICAR</a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="box">
+			<div class="box__header">
+				<div class="buttons-nav">
+					<a href="#" class="active">INICIO</a>
+					<a href="#">SERVICIOS</a>
+					<a href="#">NOSOTROS</a>
+					<a href="#">CONTACTO</a>
+				</div>
+				<div class="btn-edit-images" data-bs-toggle="modal"  data-bs-target="#edit-images">
+					EDITOR DE IMÁGENES
+				</div>
+			</div>
+			<div class="box__content">
+				<img src="assets/img/page.png" alt="page" class="img-page">
+				<div class="btn-edit btn-colors">
+					<div class="colors-buttons">
+						<span class="tooltip">Color de los botones</span>
+						<a class="input-color" href="#"><i class="material-icons">color_lens</i></a>
+					</div>
+					<div class="colors-background">
+						<span class="tooltip">Color de fondo</span>
+						<a class="input-color" href="#"><i class="material-icons">color_lens</i></a>
+					</div>
+				</div>
+				<div class="btn-edit btn-logo" data-bs-toggle="modal"  data-bs-target="#edit-logo">
+					<div class="icon">
+						<span class="tooltip">Editar logo</span>
+						<img src="assets/img/icon-edit.svg" alt="editar">
+					</div>
+				</div>
+				<div class="btn-edit btn-name-description" data-bs-toggle="modal"  data-bs-target="#edit-name-description">
+					<div class="icon">
+						<span class="tooltip">Editar título y descripción</span>
+						<img src="assets/img/icon-edit.svg" alt="editar">
+					</div>
+				</div>
+				<div class="btn-edit btn-carousel" data-bs-toggle="modal"  data-bs-target="#edit-slider">
+					<div class="icon">
+						<span class="tooltip">Editar carrusel de imágenes</span>
+						<img src="assets/img/icon-edit.svg" alt="editar">
+					</div>
+				</div>
+				<div class="btn-edit btn-services" data-bs-toggle="modal"  data-bs-target="#edit-services">
+					<div class="icon">
+						<span class="tooltip">Editar servicios</span>
+						<img src="assets/img/icon-edit.svg" alt="editar">
+					</div>
+					<div class="icon-delete delete-services-section">
+						<span class="tooltip">Eliminar servicio</span>
+						<img src="assets/img/icon-delete.svg" alt="eliminar">
+					</div>
+				</div>
+				<div class="btn-edit btn-about-description" data-bs-toggle="modal"  data-bs-target="#edit-about-description">
+					<div class="icon">
+						<span class="tooltip">Editar descripción</span>
+						<img src="assets/img/icon-edit.svg" alt="editar">
+					</div>
+				</div>
+				<div class="btn-edit btn-opinions">
+
+				</div>
+				<div class="btn-edit btn-info-contact" data-bs-toggle="modal"  data-bs-target="#edit-info-contact">
+					<div class="icon">
+						<span class="tooltip">Editar información de contacto</span>
+						<img src="assets/img/icon-edit.svg" alt="editar">
+					</div>
+				</div>
+				<div class="btn-edit btn-form-contact">
+					
+				</div>
+				<div class="btn-edit btn-social" data-bs-toggle="modal"  data-bs-target="#edit-social">
+					<div class="icon">
+						<span class="tooltip">Editar redes sociales</span>
+						<img src="assets/img/icon-edit.svg" alt="editar">
+					</div>
+				</div>
+			</div>
+			<div class="btn-add-section" data-bs-toggle="modal"  data-bs-target="#add-section">
+				+ Añadir sección
+			</div>
+		</div>
+
+		<!-- Modal editor de imagenes -->
+		<div class="modal fade" id="edit-images" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			  	<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Editor de imágenes</h5>
+						<button type="button" class="close" data-bs-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<pixie-editor>
+
+						</pixie-editor>
+					</div>
+			  	</div>
+			</div>
+		</div>
+
+		<!-- Modal Logo -->
+		<div class="modal fade" id="edit-logo" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered">
+			  	<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Logo</h5>
+						<button type="button" class="close" data-bs-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<div class="file-drop-area">
+									<span class="fake-btn">Seleccionar archivo</span>
+									<span class="file-msg">O arrastrar aquí</span>
+									<input class="file-input" type="file">
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+				  		<button type="button" class="btn btn-primary">Guardar</button>
+					</div>
+			  	</div>
+			</div>
+		</div>
+
+		<!-- Modal Información principal -->
+		<div class="modal fade" id="edit-name-description" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			  	<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Información principal</h5>
+						<button type="button" class="close" data-bs-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label>Nombre negocio</label>
+								<input type="text" class="form-control" maxlength="20">
+								<span class="txt-length">
+									<span class="count">0</span> / 20
+								</span>
+							</div>
+							<div class="form-group">
+								<label>Descripción negocio <span class="txt-length">(Máximo 250 carácteres)</span></label>
+								<textarea class="form-control textarea-wysiwyg"></textarea>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+				  		<button type="button" class="btn btn-primary">Guardar</button>
+					</div>
+			  	</div>
+			</div>
+		</div>
+
+		<!-- Modal slider principal -->
+		<div class="modal fade" id="edit-slider" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			  	<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Carrusel de imágenes</h5>
+						<button type="button" class="close" data-bs-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="btn-add-slide">Agregar imagen</div>
+							<div class="list-slider">
+								<div class="item-slide" id="slide_1">
+									<div class="item-slide__header">
+										<p class="title">Imagen</p>
+										<div class="buttons">
+											<span class="btn-edit-slide">Editar</span>
+										</div>
+									</div>
+									<div class="item-slide__content">
+										<div class="form-group">
+											<div class="file-drop-area">
+												<span class="fake-btn">Seleccionar archivo</span>
+												<span class="file-msg">O arrastrar aquí</span>
+												<input class="file-input" type="file">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="item-slide" id="slide_2">
+									<div class="item-slide__header">
+										<p class="title">Imagen</p>
+										<div class="buttons">
+											<span class="btn-edit-slide">Editar</span>
+											<span class="btn-remove-slide" targetdiv="slide_2"></span>
+										</div>
+									</div>
+									<div class="item-slide__content">
+										<div class="form-group">
+											<div class="file-drop-area">
+												<span class="fake-btn">Seleccionar archivo</span>
+												<span class="file-msg">O arrastrar aquí</span>
+												<input class="file-input" type="file">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="item-slide" id="slide_3">
+									<div class="item-slide__header">
+										<p class="title">Imagen</p>
+										<div class="buttons">
+											<span class="btn-edit-slide">Editar</span>
+											<span class="btn-remove-slide" targetdiv="slide_3"></span>
+										</div>
+									</div>
+									<div class="item-slide__content">
+										<div class="form-group">
+											<div class="file-drop-area">
+												<span class="fake-btn">Seleccionar archivo</span>
+												<span class="file-msg">O arrastrar aquí</span>
+												<input class="file-input" type="file">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="content-item-slider" class="hide">
+								<div class="item-slide">
+									<div class="item-slide__header">
+										<p class="title">Imagen</p>
+										<div class="buttons">
+											<span class="btn-edit-slide">Editar</span>
+											<span class="btn-remove-slide"></span>
+										</div>
+									</div>
+									<div class="item-slide__content">
+										<div class="form-group">
+											<div class="file-drop-area">
+												<span class="fake-btn">Seleccionar archivo</span>
+												<span class="file-msg">O arrastrar aquí</span>
+												<input class="file-input" type="file">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+				  		<button type="button" class="btn btn-primary">Guardar</button>
+					</div>
+			  	</div>
+			</div>
+		</div>
+
+		<!-- Modal Servicios -->
+		<div class="modal fade" id="edit-services" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			  	<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Servicios</h5>
+						<button type="button" class="close" data-bs-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="btn-add-service">Agregar servicio</div>
+							<div class="list-services">
+								<div class="item-service" id="service_1">
+									<div class="item-service__header">
+										<p class="title">Nombre del servicio</p>
+										<div class="buttons">
+											<span class="btn-edit-service">Editar</span>
+											<span class="btn-move-service handle" title="Mover"></span>
+										</div>
+									</div>
+									<div class="item-service__content">
+										<div class="form-group">
+											<label>Foto servicio</label>
+											<div class="file-drop-area">
+												<span class="fake-btn">Seleccionar archivo</span>
+												<span class="file-msg">O arrastrar aquí</span>
+												<input class="file-input" type="file">
+											</div>
+										</div>
+										<div class="form-group">
+											<label>Nombre servicio</label>
+											<input type="text" class="form-control input-name" maxlength="20">
+											<span class="txt-length">
+												<span class="count">0</span> / 20
+											</span>
+										</div>
+										<div class="form-group">
+											<label>Descripción servicio <span class="txt-length">(Máximo 250 carácteres)</span></label>
+											<textarea class="form-control textarea-wysiwyg"></textarea>
+										</div>
+									</div>
+								</div>
+								<div class="item-service" id="service_2">
+									<div class="item-service__header">
+										<p class="title">Nombre del servicio</p>
+										<div class="buttons">
+											<span class="btn-edit-service">Editar</span>
+											<span class="btn-remove-service" title="Eliminar" targetdiv="service_2"></span>
+											<span class="btn-move-service handle" title="Mover"></span>
+										</div>
+									</div>
+									<div class="item-service__content">
+										<div class="form-group">
+											<label>Foto servicio</label>
+											<div class="file-drop-area">
+												<span class="fake-btn">Seleccionar archivo</span>
+												<span class="file-msg">O arrastrar aquí</span>
+												<input class="file-input" type="file">
+											</div>
+										</div>
+										<div class="form-group">
+											<label>Nombre servicio</label>
+											<input type="text" class="form-control input-name" maxlength="20">
+											<span class="txt-length">
+												<span class="count">0</span> / 20
+											</span>
+										</div>
+										<div class="form-group">
+											<label>Descripción servicio <span class="txt-length">(Máximo 250 carácteres)</span></label>
+											<textarea class="form-control textarea-wysiwyg"></textarea>
+										</div>
+									</div>
+								</div>
+								
+								<div class="item-service" id="service_3">
+									<div class="item-service__header">
+										<p class="title">Nombre del servicio</p>
+										<div class="buttons">
+											<span class="btn-edit-service">Editar</span>
+											<span class="btn-remove-service" title="Eliminar" targetdiv="service_3"></span>
+											<span class="btn-move-service handle" title="Mover"></span>
+										</div>
+									</div>
+									<div class="item-service__content">
+										<div class="form-group">
+											<label>Foto servicio</label>
+											<div class="file-drop-area">
+												<span class="fake-btn">Seleccionar archivo</span>
+												<span class="file-msg">O arrastrar aquí</span>
+												<input class="file-input" type="file">
+											</div>
+										</div>
+										<div class="form-group">
+											<label>Nombre servicio</label>
+											<input type="text" class="form-control input-name" maxlength="20">
+											<span class="txt-length">
+												<span class="count">0</span> / 20
+											</span>
+										</div>
+										<div class="form-group">
+											<label>Descripción servicio <span class="txt-length">(Máximo 250 carácteres)</span></label>
+											<textarea class="form-control textarea-wysiwyg"></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+								
+							<div id="content-item-service" class="hide">
+								<div class="item-service">
+									<div class="item-service__header">
+										<p class="title">Nombre del servicio</p>
+										<div class="buttons">
+											<span class="btn-edit-service">Editar</span>
+											<span class="btn-remove-service" title="Eliminar"></span>
+											<span class="btn-move-service handle" title="Mover"></span>
+										</div>
+									</div>
+									<div class="item-service__content">
+										<div class="form-group">
+											<label>Foto servicio</label>
+											<div class="file-drop-area">
+												<span class="fake-btn">Seleccionar archivo</span>
+												<span class="file-msg">O arrastrar aquí</span>
+												<input class="file-input" type="file">
+											</div>
+										</div>
+										<div class="form-group">
+											<label>Nombre servicio</label>
+											<input type="text" class="form-control input-name" maxlength="20">
+											<span class="txt-length">
+												<span class="count">0</span> / 20
+											</span>
+										</div>
+										<div class="form-group">
+											<label>Descripción servicio <span class="txt-length">(Máximo 250 carácteres)</span></label>
+											<textarea class="form-control textarea-wysiwyg"></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+				  		<button type="button" class="btn btn-primary">Guardar</button>
+					</div>
+			  	</div>
+			</div>
+		</div>
+
+		<!-- Modal editor de imagenes -->
+		<div class="modal fade" id="edit-images" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			  	<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Editor de imágenes</h5>
+						<button type="button" class="close" data-bs-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<pixie-editor>
+
+						</pixie-editor>
+					</div>
+			  	</div>
+			</div>
+		</div>
+
+		<!-- Modal Descripción sobre el negocio -->
+		<div class="modal fade" id="edit-about-description" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			  	<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Descripción sobre el negocio</h5>
+						<button type="button" class="close" data-bs-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label><span class="txt-length">(Máximo 250 carácteres)</span></label>
+								<textarea class="form-control textarea-wysiwyg"></textarea>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+				  		<button type="button" class="btn btn-primary">Guardar</button>
+					</div>
+			  	</div>
+			</div>
+		</div>
+
+		<!-- Modal información de contacto -->
+		<div class="modal fade" id="edit-info-contact" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			  	<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Información de contacto</h5>
+						<button type="button" class="close" data-bs-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label>Teléfono</label>
+								<input type="text" class="form-control">
+							</div>
+							<div class="form-group address">
+								<label>Dirección <span class="btn-search material-icons">search</span></label>
+								<div class="form-group input-search">
+									<input type="text" class="form-control" placeholder="Buscar...">
+								</div>
+								<div class="box">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Dirección postal">
+									</div>
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Código postal">
+									</div>
+									<div class="form-group select">
+										<select class="form-control">
+											<option disabled selected>País</option>
+											<option value="">España</option>
+											<option value="">Colombia</option>
+											<option value="">Perú</option>
+											<option value="">Chile</option>
+											<option value="">Argentina</option>
+											<option value="">México</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Ciudad">
+									</div>
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Provincia">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label>Horario</label>
+								<div class="hours">
+									<div class="list-days">
+										<div class="item-day lunes">
+											<span class="item-day__title">Lunes</span>
+											<input class="item-day__toggle" type="checkbox">
+											<span class="item-day__toggle-text">
+												<span class="item-day__toggle-text--on">Abierto</span>
+												<span class="item-day__toggle-text--off">Cerrado</span>
+											</span>
+											<div class="item-day__content-select">
+												<div class="list-selects">
+													<div class="select-item select_0">
+														<div class="select-open">
+															<select class="form-control">
+																<option hidden disabled selected>Abre a las</option>
+																<option value="">6:00</option>
+																<option value="">7:00</option>
+																<option value="">8:00</option>
+																<option value="">9:00</option>
+																<option value="">10:00</option>
+																<option value="">11:00</option>
+																<option value="">12:00</option>
+																<option value="">13:00</option>
+																<option value="">14:00</option>
+																<option value="">15:00</option>
+																<option value="">16:00</option>
+																<option value="">17:00</option>
+																<option value="">18:00</option>
+																<option value="">19:00</option>
+																<option value="">20:00</option>
+															</select>
+														</div>
+														<div class="select-close">
+															<select class="form-control">
+																<option hidden disabled selected>Cierra a las</option>
+																<option value="">6:00</option>
+																<option value="">7:00</option>
+																<option value="">8:00</option>
+																<option value="">9:00</option>
+																<option value="">10:00</option>
+																<option value="">11:00</option>
+																<option value="">12:00</option>
+																<option value="">13:00</option>
+																<option value="">14:00</option>
+																<option value="">15:00</option>
+																<option value="">16:00</option>
+																<option value="">17:00</option>
+																<option value="">18:00</option>
+																<option value="">19:00</option>
+																<option value="">20:00</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<span class="btn-add-select lunes">Añadir horario</span>
+											</div>
+										</div>
+										<div class="item-day martes">
+											<span class="item-day__title">Martes</span>
+											<input class="item-day__toggle" type="checkbox">
+											<span class="item-day__toggle-text">
+												<span class="item-day__toggle-text--on">Abierto</span>
+												<span class="item-day__toggle-text--off">Cerrado</span>
+											</span>
+											<div class="item-day__content-select">
+												<div class="list-selects">
+													<div class="select-item select_0">
+														<div class="select-open">
+															<select class="form-control">
+																<option hidden disabled selected>Abre a las</option>
+																<option value="">6:00</option>
+																<option value="">7:00</option>
+																<option value="">8:00</option>
+																<option value="">9:00</option>
+																<option value="">10:00</option>
+																<option value="">11:00</option>
+																<option value="">12:00</option>
+																<option value="">13:00</option>
+																<option value="">14:00</option>
+																<option value="">15:00</option>
+																<option value="">16:00</option>
+																<option value="">17:00</option>
+																<option value="">18:00</option>
+																<option value="">19:00</option>
+																<option value="">20:00</option>
+															</select>
+														</div>
+														<div class="select-close">
+															<select class="form-control">
+																<option hidden disabled selected>Cierra a las</option>
+																<option value="">6:00</option>
+																<option value="">7:00</option>
+																<option value="">8:00</option>
+																<option value="">9:00</option>
+																<option value="">10:00</option>
+																<option value="">11:00</option>
+																<option value="">12:00</option>
+																<option value="">13:00</option>
+																<option value="">14:00</option>
+																<option value="">15:00</option>
+																<option value="">16:00</option>
+																<option value="">17:00</option>
+																<option value="">18:00</option>
+																<option value="">19:00</option>
+																<option value="">20:00</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<span class="btn-add-select martes">Añadir horario</span>
+											</div>
+										</div>
+										<div class="item-day miercoles">
+											<span class="item-day__title">Miercoles</span>
+											<input class="item-day__toggle" type="checkbox">
+											<span class="item-day__toggle-text">
+												<span class="item-day__toggle-text--on">Abierto</span>
+												<span class="item-day__toggle-text--off">Cerrado</span>
+											</span>
+											<div class="item-day__content-select">
+												<div class="list-selects">
+													<div class="select-item select_0">
+														<div class="select-open">
+															<select class="form-control">
+																<option hidden disabled selected>Abre a las</option>
+																<option value="">6:00</option>
+																<option value="">7:00</option>
+																<option value="">8:00</option>
+																<option value="">9:00</option>
+																<option value="">10:00</option>
+																<option value="">11:00</option>
+																<option value="">12:00</option>
+																<option value="">13:00</option>
+																<option value="">14:00</option>
+																<option value="">15:00</option>
+																<option value="">16:00</option>
+																<option value="">17:00</option>
+																<option value="">18:00</option>
+																<option value="">19:00</option>
+																<option value="">20:00</option>
+															</select>
+														</div>
+														<div class="select-close">
+															<select class="form-control">
+																<option hidden disabled selected>Cierra a las</option>
+																<option value="">6:00</option>
+																<option value="">7:00</option>
+																<option value="">8:00</option>
+																<option value="">9:00</option>
+																<option value="">10:00</option>
+																<option value="">11:00</option>
+																<option value="">12:00</option>
+																<option value="">13:00</option>
+																<option value="">14:00</option>
+																<option value="">15:00</option>
+																<option value="">16:00</option>
+																<option value="">17:00</option>
+																<option value="">18:00</option>
+																<option value="">19:00</option>
+																<option value="">20:00</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<span class="btn-add-select miercoles">Añadir horario</span>
+											</div>
+										</div>
+										<div class="item-day jueves">
+											<span class="item-day__title">Jueves</span>
+											<input class="item-day__toggle" type="checkbox">
+											<span class="item-day__toggle-text">
+												<span class="item-day__toggle-text--on">Abierto</span>
+												<span class="item-day__toggle-text--off">Cerrado</span>
+											</span>
+											<div class="item-day__content-select">
+												<div class="list-selects">
+													<div class="select-item select_0">
+														<div class="select-open">
+															<select class="form-control">
+																<option hidden disabled selected>Abre a las</option>
+																<option value="">6:00</option>
+																<option value="">7:00</option>
+																<option value="">8:00</option>
+																<option value="">9:00</option>
+																<option value="">10:00</option>
+																<option value="">11:00</option>
+																<option value="">12:00</option>
+																<option value="">13:00</option>
+																<option value="">14:00</option>
+																<option value="">15:00</option>
+																<option value="">16:00</option>
+																<option value="">17:00</option>
+																<option value="">18:00</option>
+																<option value="">19:00</option>
+																<option value="">20:00</option>
+															</select>
+														</div>
+														<div class="select-close">
+															<select class="form-control">
+																<option hidden disabled selected>Cierra a las</option>
+																<option value="">6:00</option>
+																<option value="">7:00</option>
+																<option value="">8:00</option>
+																<option value="">9:00</option>
+																<option value="">10:00</option>
+																<option value="">11:00</option>
+																<option value="">12:00</option>
+																<option value="">13:00</option>
+																<option value="">14:00</option>
+																<option value="">15:00</option>
+																<option value="">16:00</option>
+																<option value="">17:00</option>
+																<option value="">18:00</option>
+																<option value="">19:00</option>
+																<option value="">20:00</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<span class="btn-add-select jueves">Añadir horario</span>
+											</div>
+										</div>
+										<div class="item-day viernes">
+											<span class="item-day__title">Viernes</span>
+											<input class="item-day__toggle" type="checkbox">
+											<span class="item-day__toggle-text">
+												<span class="item-day__toggle-text--on">Abierto</span>
+												<span class="item-day__toggle-text--off">Cerrado</span>
+											</span>
+											<div class="item-day__content-select">
+												<div class="list-selects">
+													<div class="select-item select_0">
+														<div class="select-open">
+															<select class="form-control">
+																<option hidden disabled selected>Abre a las</option>
+																<option value="">6:00</option>
+																<option value="">7:00</option>
+																<option value="">8:00</option>
+																<option value="">9:00</option>
+																<option value="">10:00</option>
+																<option value="">11:00</option>
+																<option value="">12:00</option>
+																<option value="">13:00</option>
+																<option value="">14:00</option>
+																<option value="">15:00</option>
+																<option value="">16:00</option>
+																<option value="">17:00</option>
+																<option value="">18:00</option>
+																<option value="">19:00</option>
+																<option value="">20:00</option>
+															</select>
+														</div>
+														<div class="select-close">
+															<select class="form-control">
+																<option hidden disabled selected>Cierra a las</option>
+																<option value="">6:00</option>
+																<option value="">7:00</option>
+																<option value="">8:00</option>
+																<option value="">9:00</option>
+																<option value="">10:00</option>
+																<option value="">11:00</option>
+																<option value="">12:00</option>
+																<option value="">13:00</option>
+																<option value="">14:00</option>
+																<option value="">15:00</option>
+																<option value="">16:00</option>
+																<option value="">17:00</option>
+																<option value="">18:00</option>
+																<option value="">19:00</option>
+																<option value="">20:00</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<span class="btn-add-select viernes">Añadir horario</span>
+											</div>
+										</div>
+										<div class="item-day sabado">
+											<span class="item-day__title">Sabado</span>
+											<input class="item-day__toggle" type="checkbox">
+											<span class="item-day__toggle-text">
+												<span class="item-day__toggle-text--on">Abierto</span>
+												<span class="item-day__toggle-text--off">Cerrado</span>
+											</span>
+											<div class="item-day__content-select">
+												<div class="list-selects">
+													<div class="select-item select_0">
+														<div class="select-open">
+															<select class="form-control">
+																<option hidden disabled selected>Abre a las</option>
+																<option value="">6:00</option>
+																<option value="">7:00</option>
+																<option value="">8:00</option>
+																<option value="">9:00</option>
+																<option value="">10:00</option>
+																<option value="">11:00</option>
+																<option value="">12:00</option>
+																<option value="">13:00</option>
+																<option value="">14:00</option>
+																<option value="">15:00</option>
+																<option value="">16:00</option>
+																<option value="">17:00</option>
+																<option value="">18:00</option>
+																<option value="">19:00</option>
+																<option value="">20:00</option>
+															</select>
+														</div>
+														<div class="select-close">
+															<select class="form-control">
+																<option hidden disabled selected>Cierra a las</option>
+																<option value="">6:00</option>
+																<option value="">7:00</option>
+																<option value="">8:00</option>
+																<option value="">9:00</option>
+																<option value="">10:00</option>
+																<option value="">11:00</option>
+																<option value="">12:00</option>
+																<option value="">13:00</option>
+																<option value="">14:00</option>
+																<option value="">15:00</option>
+																<option value="">16:00</option>
+																<option value="">17:00</option>
+																<option value="">18:00</option>
+																<option value="">19:00</option>
+																<option value="">20:00</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<span class="btn-add-select sabado">Añadir horario</span>
+											</div>
+										</div>
+										<div class="item-day domingo">
+											<span class="item-day__title">Domingo</span>
+											<input class="item-day__toggle" type="checkbox">
+											<span class="item-day__toggle-text">
+												<span class="item-day__toggle-text--on">Abierto</span>
+												<span class="item-day__toggle-text--off">Cerrado</span>
+											</span>
+											<div class="item-day__content-select">
+												<div class="list-selects">
+													<div class="select-item select_0">
+														<div class="select-open">
+															<select class="form-control">
+																<option hidden disabled selected>Abre a las</option>
+																<option value="">6:00</option>
+																<option value="">7:00</option>
+																<option value="">8:00</option>
+																<option value="">9:00</option>
+																<option value="">10:00</option>
+																<option value="">11:00</option>
+																<option value="">12:00</option>
+																<option value="">13:00</option>
+																<option value="">14:00</option>
+																<option value="">15:00</option>
+																<option value="">16:00</option>
+																<option value="">17:00</option>
+																<option value="">18:00</option>
+																<option value="">19:00</option>
+																<option value="">20:00</option>
+															</select>
+														</div>
+														<div class="select-close">
+															<select class="form-control">
+																<option hidden disabled selected>Cierra a las</option>
+																<option value="">6:00</option>
+																<option value="">7:00</option>
+																<option value="">8:00</option>
+																<option value="">9:00</option>
+																<option value="">10:00</option>
+																<option value="">11:00</option>
+																<option value="">12:00</option>
+																<option value="">13:00</option>
+																<option value="">14:00</option>
+																<option value="">15:00</option>
+																<option value="">16:00</option>
+																<option value="">17:00</option>
+																<option value="">18:00</option>
+																<option value="">19:00</option>
+																<option value="">20:00</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<span class="btn-add-select domingo">Añadir horario</span>
+											</div>
+										</div>
+									</div>
+
+									<div id="content-item-day" class="hide">
+										<div class="select-item">
+											<div class="select-open">
+												<select class="form-control">
+													<option hidden disabled selected>Abre a las</option>
+													<option value="">6:00</option>
+													<option value="">7:00</option>
+													<option value="">8:00</option>
+													<option value="">9:00</option>
+													<option value="">10:00</option>
+													<option value="">11:00</option>
+													<option value="">12:00</option>
+													<option value="">13:00</option>
+													<option value="">14:00</option>
+													<option value="">15:00</option>
+													<option value="">16:00</option>
+													<option value="">17:00</option>
+													<option value="">18:00</option>
+													<option value="">19:00</option>
+													<option value="">20:00</option>
+												</select>
+											</div>
+											<div class="select-close">
+												<select class="form-control">
+													<option hidden disabled selected>Cierra a las</option>
+													<option value="">6:00</option>
+													<option value="">7:00</option>
+													<option value="">8:00</option>
+													<option value="">9:00</option>
+													<option value="">10:00</option>
+													<option value="">11:00</option>
+													<option value="">12:00</option>
+													<option value="">13:00</option>
+													<option value="">14:00</option>
+													<option value="">15:00</option>
+													<option value="">16:00</option>
+													<option value="">17:00</option>
+													<option value="">18:00</option>
+													<option value="">19:00</option>
+													<option value="">20:00</option>
+												</select>
+											</div>
+											<span class="btn-remove-select">&times;</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+				  		<button type="button" class="btn btn-primary">Guardar</button>
+					</div>
+			  	</div>
+			</div>
+		</div>
+
+		<!-- Modal Redes sociales -->
+		<div class="modal fade" id="edit-social" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered">
+			  	<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">URL de redes sociales</h5>
+						<button type="button" class="close" data-bs-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Facebook">
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Instagram">
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Twitter">
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Linkedin">
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Página web">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+				  		<button type="button" class="btn btn-primary">Guardar</button>
+					</div>
+			  	</div>
+			</div>
+		</div>
+
+		<!-- Modal Agregar sección -->
+		<div class="modal fade" id="add-section" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			  	<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Secciones</h5>
+						<button type="button" class="close" data-bs-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<label>
+								<input type="checkbox">
+								<span class="icon"></span>
+								<div class="section">
+									<img src="assets/img/section-service.jpg" alt="servicios">
+									<p>Seccion <b>Servicios,</b> en la que se indican los servicios disponible con un mínimo de dos y un máximo de seis. También en esta sección se permite la navegación a la página específica de servicios dónde se detallan los mismos.</p>
+								</div>
+							</label>
+							<label>
+								<input type="checkbox">
+								<span class="icon"></span>
+								<div class="section">
+									<img src="assets/img/section-about.jpg" alt="Sobre nosotros">
+									<p>Seccion <b>Sobre Nosotros,</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nihil, quibusdam error totam quas pariatur molestiae tenetur earum dolore odit distinctio.</p>
+								</div>
+							</label>
+							<label>
+								<input type="checkbox">
+								<span class="icon"></span>
+								<div class="section">
+									<img src="assets/img/section-opinions.jpg" alt="Opiniones">
+									<p>Seccion <b>Opiniones,</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nihil, quibusdam error totam quas pariatur molestiae tenetur earum dolore odit distinctio. Molestiae reiciendis cumque.</p>
+								</div>
+							</label>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+				  		<button type="button" class="btn btn-primary">Guardar</button>
+					</div>
+			  	</div>
+			</div>
+		</div>
+
+		<!-- JS -->
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+		<script src="assets/js/summernote/lang/summernote-es-ES-min.js"></script>
+		<script src="assets/js/color-picker-min.js"></script>
+		<script src="assets/js/sortable-min.js"></script>
+		<script src="assets/js/editor-images-min.js"></script>
+		<script src="assets/js/custom/scripts-min.js"></script>
+		<script>
+			$(function(){ // Eliminar sección de servicios
+				$(".delete-services-section").die('click').live('click', function (e) { 
+				
+					Swal.fire({
+						title: 'Eliminar Sección',
+						text: "¿Estás seguro?",
+						icon: 'warning',
+						showCancelButton: true,
+						confirmButtonColor: '#CB3234',
+						cancelButtonColor: '#999999',
+						cancelButtonText: 'Cancelar',
+						confirmButtonText: 'Sí, eliminar',
+						}).then((result) => {
+						if (result.isConfirmed) {
+							Swal.fire({
+								title: '¡Eliminado!',
+								text: "Se ha eliminado la sección exitosamente",
+								icon: 'success',
+								confirmButtonColor: '#CB3234'
+							});
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>
+
+
