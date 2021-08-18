@@ -162,6 +162,7 @@
                         transition: all .3s;
                         z-index: -5;
                         visibility: hidden;
+                        font-family: $font-text;
         
                         &:after{
                             content: "";
@@ -222,6 +223,7 @@
                             transition: all .3s;
                             z-index: -5;
                             visibility: hidden;
+                            font-family: $font-text;
             
                             &:after{
                                 content: "";
@@ -296,7 +298,7 @@
                         right: 10px;
                         top: 20px;
                     }
-                    .icon-delete{
+                    .icon-move{
                         position: absolute;
                         right: 10px;
                         top: 70px;
@@ -304,13 +306,22 @@
                         height: 38px;
                         padding: 8px;
                         background-color: $blanco;
+                        border: 1px solid $negro;
+                        box-shadow: 0 0 3px rgba($negro,.2);
+                        border-radius: 50%;
+                        cursor: grab;
+                    }
+                    .icon-delete{
+                        position: absolute;
+                        right: 10px;
+                        top: 120px;
+                        width: 38px;
+                        height: 38px;
+                        padding: 8px;
+                        background-color: $blanco;
                         border: 1px solid $first-color;
                         box-shadow: 0 0 3px rgba($first-color,.2);
                         border-radius: 50%;
-
-                        span{
-                            display: none;
-                        }
 
                         img{
                             position: relative;
@@ -332,6 +343,36 @@
                             top: -64px;
                         }
                     }
+                    .icon-move{
+                        position: absolute;
+                        right: 10px;
+                        top: 70px;
+                        width: 38px;
+                        height: 38px;
+                        padding: 8px;
+                        background-color: $blanco;
+                        border: 1px solid $negro;
+                        box-shadow: 0 0 3px rgba($negro,.2);
+                        border-radius: 50%;
+                        cursor: grab;
+                    }
+                    .icon-delete{
+                        position: absolute;
+                        right: 10px;
+                        top: 120px;
+                        width: 38px;
+                        height: 38px;
+                        padding: 8px;
+                        background-color: $blanco;
+                        border: 1px solid $first-color;
+                        box-shadow: 0 0 3px rgba($first-color,.2);
+                        border-radius: 50%;
+
+                        img{
+                            position: relative;
+                            left: 2px;
+                        }
+                    }
                 }
                 &.btn-opinions{
                     width: 100%;
@@ -339,6 +380,40 @@
                     top: 782px;
                     left: 0;
 
+                    .icon{
+                        right: 10px;
+                        top: 20px;
+                    }
+                    .icon-move{
+                        position: absolute;
+                        right: 10px;
+                        top: 70px;
+                        width: 38px;
+                        height: 38px;
+                        padding: 8px;
+                        background-color: $blanco;
+                        border: 1px solid $negro;
+                        box-shadow: 0 0 3px rgba($negro,.2);
+                        border-radius: 50%;
+                        cursor: grab;
+                    }
+                    .icon-delete{
+                        position: absolute;
+                        right: 10px;
+                        top: 120px;
+                        width: 38px;
+                        height: 38px;
+                        padding: 8px;
+                        background-color: $blanco;
+                        border: 1px solid $first-color;
+                        box-shadow: 0 0 3px rgba($first-color,.2);
+                        border-radius: 50%;
+
+                        img{
+                            position: relative;
+                            left: 2px;
+                        }
+                    }
                 }
                 &.btn-info-contact{
                     width: 100%;
@@ -361,6 +436,16 @@
                     height: 378px;
                     top: 1362px;
                     left: 0;
+
+                    .icon{
+                        right: 10px;
+                        top: 20px;
+    
+                        .tooltip{
+                            width: 140px;
+                            top: -64px;
+                        }
+                    }
                 }
                 &.btn-social{
                     top: 1738px;
@@ -382,25 +467,27 @@
 
         .btn-add-section{
             position: absolute;
-            top: 420px;
-            right: -115px;
-            color: $first-color;
-            font-weight: 700;
-            border: 2px solid $first-color;
-            padding: 2px 15px;
+            top: 415px;
+            right: -120px;
+            color: $negro;
+            text-transform: uppercase;
+            font-weight: 600;
+            border: 2px solid rgba($negro,.2);
+            padding: 10px 20px;
             transform: rotate(-90deg);
-            font-size: 18px;
+            font-size: 15px;
             cursor: pointer;
             font-family: $font-title;
             transition: all .3s;
+            background-color: $blanco;
 
             &:hover{
-                background-color: rgba($first-color,.1);
+                background-color: lighten($negro, 95%)
             }
         }
     }
     .modal{
-        background-color: rgba($negro,.8);
+        background-color: rgba($negro,.4);
         
         .modal-dialog{
             .modal-content{
